@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thalari Translator</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      padding: 2rem;
+    }
+    textarea, input, button {
+      font-size: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .output {
+      font-weight: bold;
+      background: #333;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thalari Translator</h1>
+  <p>Enter a word or sentence in English to see its Thalari version.</p>
+  <textarea id="inputText" rows="4" placeholder="Type something like 'mist covers the mountain'..."></textarea>
+  <button onclick="translate()">Translate</button>
+  <div class="output" id="outputText"></div>
+
+  <script>
+    const thalariDictionary = {
+      "air": "aen",
+      "beast": "bai",
+      "crystal": "cyn",
+      "dragon": "dra",
+      "echo": "elo",
+      "flame": "fur",
+      "gold": "gil",
+      "hawk": "han",
+      "ice": "iri",
+      "jewel": "jor",
+      "key": "kel",
+      "light": "lyn",
+      "mist": "mol",
+      "night": "nir",
+      "oak": "ori",
+      "pearl": "paz",
+      "quill": "qua",
+      "rain": "ral",
+      "star": "syl",
+      "tide": "tor",
+      "shadow": "uri",
+      "vine": "val",
+      "wind": "wyn",
+      "stranger": "xel",
+      "yearn": "yen",
+      "zeal": "zar",
+      "root": "rok",
+      "stone": "sol",
+      "cover": "del",
+      "covers": "del",
+      "the": "", // Optional, omit articles
+      "mountain": "gur",
+      "misty": "mol",
+      "torch": "tol"
+    };
+
+    function translate() {
+      const input = document.getElementById("inputText").value.toLowerCase();
+      const words = input.split(/\s+/);
+      const translatedWords = words.map(word => thalariDictionary[word] || `[${word}]`);
+      document.getElementById("outputText").innerText = translatedWords.join(" ");
+    }
+  </script>
+</body>
+</html>
