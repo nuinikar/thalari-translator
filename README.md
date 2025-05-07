@@ -1,0 +1,1 @@
+# thalari-translator
